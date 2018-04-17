@@ -1,14 +1,17 @@
 package workshop.testing.data.model;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import static org.junit.Assert.*;
 
 public class RecipeTest {
     @Test
-    public void testWater(){
+    public void testWater() throws IOException {
         InputStream stream = RecipeTest.class.getResourceAsStream("/recipes/water.txt");
 
         Recipe recipe = Recipe.readFromStream(stream);
@@ -21,7 +24,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void testNoID(){
+    public void testNoID() throws IOException {
         InputStream stream = RecipeTest.class.getResourceAsStream("/recipes/no_id.txt");
 
         Recipe recipe = Recipe.readFromStream(stream);
@@ -32,7 +35,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void testMixed(){
+    public void testMixed() throws IOException {
         InputStream stream = RecipeTest.class.getResourceAsStream("/recipes/mixed.txt");
 
         Recipe recipe = Recipe.readFromStream(stream);
@@ -48,6 +51,22 @@ public class RecipeTest {
                 "1 pine apple juice\n" +
                 "Mix all together and strain. Add large piece of ice.",recipe.description);
     }
+
+    @Test
+    public void testNull() throws IOException {
+        InputStream stream = RecipeTest.class.getResourceAsStream("/recipes/water.txt");
+        stream.close();
+        Recipe recipe = Recipe.readFromStream(stream);
+        assertNull(recipe);
+
+
+    }
+
+
+
+
+
+
 
 
 

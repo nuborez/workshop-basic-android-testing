@@ -1,5 +1,7 @@
 package workshop.testing.data.model;
 
+import android.support.annotation.Nullable;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +21,7 @@ public class Recipe {
         this.description = description;
     }
 
-    public static Recipe readFromStream(InputStream stream) {
+    public static Recipe readFromStream(InputStream stream)  {
         String id = null;
         String title = null;
         StringBuilder descBuilder = new StringBuilder();
