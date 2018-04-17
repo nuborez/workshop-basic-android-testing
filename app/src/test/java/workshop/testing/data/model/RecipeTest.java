@@ -20,6 +20,16 @@ public class RecipeTest {
 
     }
 
+    @Test
+    public void testNoID(){
+        InputStream stream = RecipeTest.class.getResourceAsStream("/recipes/no_id.txt");
+
+        Recipe recipe = Recipe.readFromStream(stream);
+
+        assertNotNull(recipe);
+        assertEquals("Put glass under tap. Open tap. Close tap. Drink.",recipe.description);
+    }
+
 
 
 
