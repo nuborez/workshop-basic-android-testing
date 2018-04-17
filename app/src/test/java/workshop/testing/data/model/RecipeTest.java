@@ -27,6 +27,7 @@ public class RecipeTest {
         Recipe recipe = Recipe.readFromStream(stream);
 
         assertNotNull(recipe);
+        assertEquals("Water",recipe.title);
         assertEquals("Put glass under tap. Open tap. Close tap. Drink.",recipe.description);
     }
 
